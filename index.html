@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-powered cybersecurity solutions for a safer digital future.">
+  <title>NeuraShield — AI & Cyber Security</title>
+  <style>
+    :root {
+      --bg: #070d1c;
+      --panel: #0d1730;
+      --text: #f5f8ff;
+      --muted: #a8b6d3;
+      --blue: #4e8cff;
+      --cyan: #31d6e8;
+      --line: rgba(164,190,255,.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 78% 20%, rgba(36,112,255,.17), transparent 34rem),
+        radial-gradient(ellipse at 15% 70%, rgba(35,213,232,.08), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header { border-bottom: 1px solid var(--line); background: rgba(7,13,28,.78); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(14px); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; letter-spacing: -.04em; }
+    .brand-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; color: #061020; font-weight: 900; background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 0 24px rgba(78,140,255,.3); }
+    .brand span:last-child { color: var(--cyan); }
+    .navlinks { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: white; }
+    .nav-cta, .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 700; transition: transform .2s, filter .2s; }
+    .nav-cta { background: var(--blue); padding: 10px 17px; font-size: .9rem; }
+    .btn:hover, .nav-cta:hover { transform: translateY(-2px); filter: brightness(1.12); }
+    .hero { padding: 90px 0 76px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; min-height: 590px; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; color: #c9dcff; background: rgba(20,39,78,.45); font-size: .82rem; margin-bottom: 22px; }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+    h1 { font-size: clamp(2.7rem, 5.5vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; max-width: 650px; }
+    h1 em { font-style: normal; background: linear-gradient(90deg, var(--cyan), #7da7ff 80%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--muted); max-width: 520px; margin: 24px 0 30px; font-size: 1.08rem; }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; }
+    .btn { padding: 13px 20px; }
+    .primary { background: linear-gradient(100deg, #3979ff, #2860e8); box-shadow: 0 10px 30px rgba(47,105,255,.24); }
+    .secondary { border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .proof { display: flex; gap: 25px; margin-top: 38px; color: var(--muted); font-size: .86rem; flex-wrap: wrap; }
+    .proof strong { color: var(--text); font-size: 1.05rem; display: block; }
+    .visual { position: relative; min-height: 410px; display: grid; place-items: center; }
+    .orbit { width: min(390px, 100%); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(91,151,255,.23); display: grid; place-items: center; position: relative; background: radial-gradient(circle, rgba(48,115,255,.14), transparent 67%); }
+    .orbit:before, .orbit:after { content: ""; position: absolute; border: 1px solid rgba(75,146,255,.22); border-radius: 50%; }
+    .orbit:before { inset: 11%; }
+    .orbit:after { inset: 23%; }
+    .core { width: 145px; height: 145px; display: grid; place-items: center; border-radius: 36px; transform: rotate(-8deg); background: linear-gradient(145deg, #152c57, #0a1429); border: 1px solid rgba(107,177,255,.5); box-shadow: 0 0 75px rgba(53,122,255,.26), inset 0 0 28px rgba(49,214,232,.1); }
+    .shield { font-size: 4.6rem; transform: rotate(8deg); filter: drop-shadow(0 0 20px rgba(49,214,232,.45)); }
+    .float-card { position: absolute; padding: 13px 15px; border: 1px solid var(--line); background: rgba(13,23,48,.9); border-radius: 13px; box-shadow: 0 14px 34px rgba(0,0,0,.2); backdrop-filter: blur(10px); font-size: .82rem; }
+    .float-card strong { display: block; font-size: 1rem; }
+    .float-card small { color: var(--muted); }
+    .card-a { top: 46px; left: 0; }
+    .card-b { right: -5px; top: 130px; }
+    .card-c { bottom: 45px; left: 35px; }
+    .green { color: #4ce3b0; }
+    .blue { color: #7da7ff; }
+    .section { padding: 72px 0; }
+    .section-head { text-align: center; max-width: 650px; margin: 0 auto 38px; }
+    .section-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); letter-spacing: -.045em; line-height: 1.15; }
+    .section-head p { color: var(--muted); margin-top: 13px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feature { padding: 25px; border-radius: 18px; background: linear-gradient(145deg, rgba(18,32,63,.9), rgba(10,19,39,.85)); border: 1px solid var(--line); }
+    .feature-icon { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: rgba(65,128,255,.13); color: var(--cyan); font-size: 1.3rem; margin-bottom: 18px; }
+    .feature h3 { margin-bottom: 8px; font-size: 1.1rem; }
+    .feature p { color: var(--muted); font-size: .94rem; }
+    .banner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 34px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(105deg, rgba(44,103,227,.19), rgba(49,214,232,.06)); }
+    .banner h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -.04em; }
+    .banner p { color: var(--muted); margin-top: 7px; }
+    footer { margin-top: 70px; border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .88rem; }
+    .foot-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .navlinks { gap: 14px; } .navlinks a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 60px; }
+      .visual { min-height: 350px; }
+      .orbit { width: min(330px, 85%); }
+      .card-a { left: 2%; top: 24px; } .card-b { right: 0; top: 105px; } .card-c { bottom: 20px; left: 4%; }
+      .grid { grid-template-columns: 1fr; }
+      .banner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      nav { min-height: 66px; }
+      .hero { padding-top: 45px; }
+      .proof { gap: 16px; }
+      .float-card { padding: 10px 12px; }
+      .core { width: 120px; height: 120px; }
+      .shield { font-size: 3.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="NeuraShield home"><span class="brand-icon">N</span><span>Neura<span>Shield</span></span></a>
+      <div class="navlinks">
+        <a href="#solutions">Solutions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Get started ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero wrap">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> NEXT-GENERATION DIGITAL SECURITY</div>
+        <h1>Smarter defense.<br><em>Safer future.</em></h1>
+        <p class="lead">We combine artificial intelligence and modern cybersecurity to help protect your data, systems, and digital world.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Explore solutions <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="btn secondary" href="#solutions">Discover more</a>
+        </div>
+        <div class="proof">
+          <div><strong>24/7</strong><span>Threat monitoring</span></div>
+          <div><strong>AI-powered</strong><span>Smart protection</span></div>
+          <div><strong>Secure</strong><span>By design</span></div>
+        </div>
+      </div>
+      <div class="visual" aria-label="Illustration of an AI security shield">
+        <div class="orbit"><div class="core"><div class="shield">🛡️</div></div></div>
+        <div class="float-card card-a"><strong class="green">● System secure</strong><small>All systems operational</small></div>
+        <div class="float-card card-b"><strong class="blue">AI Detection</strong><small>Real-time threat analysis</small></div>
+        <div class="float-card card-c"><strong>99.9% <span class="green">↑</span></strong><small>Protection uptime</small></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="solutions">
+      <div class="section-head">
+        <h2>Security built for the future</h2>
+        <p>Powerful tools that work together to keep your digital environment safer.</p>
+      </div>
+      <div class="grid">
+        <article class="feature">
+          <div class="feature-icon">✦</div>
+          <h3>Artificial Intelligence</h3>
+          <p>Turn complex data into useful insights with smart analysis and automated detection.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">⌑</div>
+          <h3>Cyber Protection</h3>
+          <p>Identify suspicious activity and strengthen your systems against digital threats.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">◈</div>
+          <h3>Secure Cloud</h3>
+          <p>Keep your important information organized, protected, and ready when you need it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="about">
+      <div class="banner">
+        <div>
+          <h2>Build a safer digital tomorrow.</h2>
+          <p>Thoughtful technology. Reliable protection. A smarter way forward.</p>
+        </div>
+        <a class="btn primary" href="#contact">Let's talk ↗</a>
+      </div>
+    </section>
+
+    <section class="section wrap" id="contact">
+      <div class="section-head">
+        <h2>Ready to get started?</h2>
+        <p>This is a demo landing page for a GitHub Pages project. You can customize the text, colors, and sections for your assignment.</p>
+        <div class="actions" style="justify-content:center; margin-top:22px">
+          <a class="btn primary" href="mailto:hello@neurashield.example">Contact our team</a>
+          <a class="btn secondary" href="#home">Back to top ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <a class="brand" href="#home"><span class="brand-icon">N</span><span>Neura<span>Shield</span></span></a>
+      <span>© <span id="year"></span> NeuraShield. Demo project.</span>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
